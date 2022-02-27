@@ -1,12 +1,18 @@
 import sys
+import os
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from playerEntryScreen import Ui_MainWindow
+from database.database import db
+
 
 # pyqt/python is stupid and will immediately gc all windows
 # so hold a reference to all windows so it knows not to destroy them
 main_window = None
+database = db()
+print(os.environ.get("DATABASE_NAME"))
+database.remotelyConnect(os.environ.get("DATABASE_NAME"), os.environ.get("DATABASE_USER"), os.environ.get("DATABASE_PASSWORD"), os.environ.get("DATABASE_HOST"))
 
 class SplashWindow(QWidget):
     closed = pyqtSignal()
@@ -50,7 +56,20 @@ class SplashWindow(QWidget):
 class PlayerEntryWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
-    
+
+    def setupUIEvents(self):
+        self.ui.startGame.clicked.connect(self.startGameEvent)
+
+    def startGameEvent(self):
+
+        player0IDNumber = self.ui.player0FirstName.toPlainText() 
+        player0UserName = self.ui.player0LastName.toPlainText()
+        player1IDNumber = self.ui.player1FirstName.toPlainText()
+        player1UserName = self.ui.player1LastName.toPlainText()
+        database.upsert(int(player0IDNumber),"John","Doe", player0UserName)
+        database.upsert(int(player1IDNumber),"John","Doe", player1UserName)
+
+
     def closeEvent(self, event):
         # close here instead of after splash
         sys.exit()
@@ -60,8 +79,9 @@ def show_player_entry_screen():
     global main_window
     
     main_window = PlayerEntryWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(main_window)
+    main_window.ui = Ui_MainWindow()
+    main_window.ui.setupUi(main_window)
+    main_window.setupUIEvents()
     main_window.show()
     
     return main_window
