@@ -1,25 +1,23 @@
 import sys
-import os
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from playerEntryScreen import Ui_MainWindow
-from database.database import db
+from database.database import database
 
 
 # pyqt/python is stupid and will immediately gc all windows
 # so hold a reference to all windows so it knows not to destroy them
 main_window = None
-database = db()
-print(os.environ.get("DATABASE_NAME"))
-database.remotelyConnect(os.environ.get("DATABASE_NAME"), os.environ.get("DATABASE_USER"), os.environ.get("DATABASE_PASSWORD"), os.environ.get("DATABASE_HOST"))
+database = database()
+database.open()
 
 class SplashWindow(QWidget):
     closed = pyqtSignal()
     
     def __init__(self, *args, **kwargs):
         QWidget.__init__(self, *args, **kwargs)
-        
+
         self.setAttribute(Qt.WA_DeleteOnClose)
 
         # loading image

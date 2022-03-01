@@ -3,7 +3,7 @@ import psycopg2.extras
 import os
 
 
-class db:
+class database:
     def __init__(self):
         self.connection = None
         self.cursor = None
@@ -26,8 +26,13 @@ class db:
     def open(self):
         """ connect to the database and set up the table if needed """
 
-        dbURL = os.environ.get("DATABASE_URL")
-        self.connection = psycopg2.connect(dbURL, sslmode = "require")
+        self.connection = psycopg2.connect(
+            dbname = os.environ.get("DATABASE_NAME"),
+            user = os.environ.get("DATABASE_USER"),
+            password = os.environ.get("DATABASE_PASSWORD"),
+            host = os.environ.get("DATABASE_HOST"),
+            sslmode = "require"
+        )
         self.cursor = self.connection.cursor(cursor_factory = psycopg2.extras.DictCursor)
 
         self.__initTable()
