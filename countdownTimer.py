@@ -8,6 +8,12 @@ import sys
 
 class countdownTimer:
     def __init__(self, duration, timeoutFunc, intervalFunc = lambda *args: None):
+        """
+        duration: amount of seconds the timer will take to execute the "timeoutFunc" function
+        timeoutFunc: the function to be executed at the end of the timer duration. first parameter passed is the number of seconds left (0 seconds)
+        intervalFunc: the function to be executed during every second. first parameter passed is the number of seconds left (n seconds)
+        """
+
         self.__timer = QTimer()
 
         # default value of 30 seconds
@@ -32,15 +38,29 @@ class countdownTimer:
 
 
     def start(self):
+        """
+        starts the timer
+
+        the timer will nto start if the time left is 0 seconds
+        """
+
         if self.__remainingTime != 0:
             self.__timer.start(1000)
 
 
     def stop(self):
+        """
+        stops the timer
+        """
+
         self.__timer.stop()
 
 
     def reset(self):
+        """
+        stops and resets the timer
+        """
+
         self.stop()
         self.__remainingTime = self.duration
 
