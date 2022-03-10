@@ -1,41 +1,48 @@
-from PyQt5 import QtCore
+from PyQt5.QtCore import QTimer
 
 # imports for testing
 from PyQt5 import QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtCore import Qt
 import sys
 
 
 class countdownTimer:
-    def __init__(self, timeoutFunc, intervalFunc = None):
-        self.timer = QtCore.QTimer()
-        self.duration = 30 # default value of 30 seconds
+    def __init__(self, duration, timeoutFunc, intervalFunc = lambda *args: None):
+        self.__timer = QTimer()
+
+        # default value of 30 seconds
+        if duration is None or duration == 0:
+            duration = 30
+
+        self.duration = duration
+        self.__remainingTime = self.duration
         self.intervalFunc = intervalFunc
         self.timeoutFunc = timeoutFunc
-        self.remainingTime = 0
+        self.__timer.timeout.connect(self.__timerInterval)
 
 
-    def __timeout(self):
-        self.remainingTime -= 1
+    def __timerInterval(self):
+        self.__remainingTime -= 1
 
-        if self.remainingTime == 0:
-            self.timeoutFunc(self.remainingTime)
-            self.remainingTime = self.duration
-        
-        self.intervalFunc(self.remainingTime)
+        if self.__remainingTime == 0:
+            self.timeoutFunc(0)
+            self.stop()
+        else:
+            self.intervalFunc(self.__remainingTime)
 
 
     def start(self):
-        self.timer.timeout.connect(self.__timeout)
-        self.timer.start(self.duration * 100)
+        if self.__remainingTime != 0:
+            self.__timer.start(1000)
 
 
     def stop(self):
-        self.timer.stop()
+        self.__timer.stop()
 
 
     def reset(self):
-        self.remainingTime = self.duration
+        self.stop()
+        self.__remainingTime = self.duration
 
 
     def toString(seconds):
@@ -50,51 +57,53 @@ class countdownTimer:
 
 # test the timer with a pretty little window
 def main():
-    class App(QtWidgets.QMainWindow):
+    class Test(QtWidgets.QMainWindow):
         def __init__(self):
             super().__init__()
-            self.timer = countdownTimer(self.updateGUI, self.updateGUI)
 
             # window
-            self.app = QApplication(sys.argv)
-            self.win = QMainWindow()
-            self.win.setGeometry(200, 200, 200, 200)
-            self.win.setWindowTitle("test")
+            self.setGeometry(200, 200, 200, 200)
+            self.setWindowTitle("test")
 
-            # buttons and labels
-            self.timerLabel = QtWidgets.QLabel(self.win)
+            # label
+            self.timerLabel = QtWidgets.QLabel(self)
             self.timerLabel.move(50,50)
-            self.timerLabel.setAlignment(QtCore.Qt.AlignCenter)
-            self.timerLabel.setStyleSheet("font: 10pt Calibri")
+            self.timerLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
+            # self.timerLabel.setStyleSheet("font: 10pt Calibri")
 
-            self.startButton = QtWidgets.QPushButton(self.win)
+            self.timer = countdownTimer(5, self.updateGUI, self.updateGUI)
+            # self.timer = countdownTimer(5, self.updateGUI)
+
+            self.updateGUI(self.timer.duration)
+
+            # buttons
+            self.startButton = QtWidgets.QPushButton(self)
             self.startButton.setText("Start")
             self.startButton.move(50,100)
             self.startButton.clicked.connect(self.timer.start)
 
-            self.stopButton = QtWidgets.QPushButton(self.win)
+            self.stopButton = QtWidgets.QPushButton(self)
             self.stopButton.setText("Stop")
             self.stopButton.move(50,130)
-            self.startButton.clicked.connect(self.timer.stop)
+            self.stopButton.clicked.connect(self.timer.stop)
 
-            self.stopButton = QtWidgets.QPushButton(self.win)
-            self.stopButton.setText("Reset")
-            self.stopButton.move(50,160)
-            self.startButton.clicked.connect(self.timer.reset)
-
-            self.updateGUI(self.timer.duration)
-
-            # window
-            self.win.show()
-            sys.exit(app.exec_())
+            self.resetButton = QtWidgets.QPushButton(self)
+            self.resetButton.setText("Reset")
+            self.resetButton.move(50,160)
+            self.resetButton.clicked.connect(self.reset)
 
 
-        def updateGUI(self, remainingTIme):
+        def updateGUI(self, remainingTIme = 0):
             self.timerLabel.setText(countdownTimer.toString(remainingTIme))
+
+        
+        def reset(self):
+            self.timer.reset()
+            self.timerLabel.setText(countdownTimer.toString(self.timer.duration))
 
 
     app = QtWidgets.QApplication(sys.argv)
-    main_window = App()
+    main_window = Test()
     main_window.show()
     sys.exit(app.exec_())
 
