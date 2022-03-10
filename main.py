@@ -3,14 +3,15 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from playerEntryScreen import Ui_MainWindow
+from playActionScreen import Ui_PlayActionWindow
 from database.database import database
 
 
 # pyqt/python is stupid and will immediately gc all windows
 # so hold a reference to all windows so it knows not to destroy them
 main_window = None
-database = database()
-database.open()
+#database = database()
+#database.open()
 
 class SplashWindow(QWidget):
     closed = pyqtSignal()
@@ -59,14 +60,19 @@ class PlayerEntryWindow(QMainWindow):
         self.ui.startGame.clicked.connect(self.startGameEvent)
 
     def startGameEvent(self):
+        show_play_action_screen()
 
-        player0IDNumber = self.ui.player0FirstName.toPlainText() 
-        player0UserName = self.ui.player0LastName.toPlainText()
-        player1IDNumber = self.ui.player1FirstName.toPlainText()
-        player1UserName = self.ui.player1LastName.toPlainText()
-        database.upsert(int(player0IDNumber),"John","Doe", player0UserName)
-        database.upsert(int(player1IDNumber),"John","Doe", player1UserName)
+    def closeEvent(self, event):
+        # close here instead of after splash
+        # sys.exit()
+        event.accept()
 
+class PlayActionScreen(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+
+    def setupUIEvents(self):
+        pass
 
     def closeEvent(self, event):
         # close here instead of after splash
@@ -78,6 +84,18 @@ def show_player_entry_screen():
     
     main_window = PlayerEntryWindow()
     main_window.ui = Ui_MainWindow()
+    main_window.ui.setupUi(main_window)
+    main_window.setupUIEvents()
+    main_window.show()
+    
+    return main_window
+
+def show_play_action_screen():
+    global main_window
+    
+    # we're replacing the window, so it's fine if it gets gc'd
+    main_window = PlayActionScreen()
+    main_window.ui = Ui_PlayActionWindow()
     main_window.ui.setupUi(main_window)
     main_window.setupUIEvents()
     main_window.show()
