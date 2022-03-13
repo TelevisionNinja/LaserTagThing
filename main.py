@@ -66,6 +66,10 @@ class PlayerEntryWindow(QMainWindow):
         # close here instead of after splash
         # sys.exit()
         event.accept()
+    
+    def keyPressEvent(self, e) -> None:
+        if e.key() == Qt.Key_F5:
+            show_play_action_screen()
 
 class PlayActionScreen(QMainWindow):
     def __init__(self):
