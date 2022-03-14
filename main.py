@@ -14,7 +14,8 @@ from countdownTimer import countdownTimer
 main_window = None
 #database = database()
 #database.open()
-timer = countdownTimer(None, lambda * args: None)
+startingGameTimer = countdownTimer(None, lambda * args: None)
+
 class SplashWindow(QWidget):
     closed = pyqtSignal()
     
@@ -68,7 +69,7 @@ class PlayerEntryWindow(QMainWindow):
     
     def keyPressEvent(self, e) -> None:
         if e.key() == Qt.Key_F5:
-            show_play_action_screen()
+            show_timer_screen()
 
 class PlayActionScreen(QMainWindow):
     def __init__(self):
@@ -110,7 +111,7 @@ def show_player_entry_screen():
     main_window.ui.setupUi(main_window)
     main_window.setupUIEvents()
     main_window.show()
-    timer.reset()
+    startingGameTimer.reset()
     
     return main_window
 
@@ -118,8 +119,8 @@ def show_timer_screen():
     global main_window
 
     try:
-        timer.duration = int (main_window.ui.textEdit.toPlainText())
-        timer.reset()
+        startingGameTimer.duration = int (main_window.ui.textEdit.toPlainText())
+        startingGameTimer.reset()
     except:
         pass
 
@@ -129,10 +130,10 @@ def show_timer_screen():
     main_window.setupUIEvents()
     main_window.show()
 
-    timer.intervalFunc = main_window.warningTimer
-    timer.timeoutFunc = main_window.warningTimer
-    main_window.warningTimer(timer.duration)
-    timer.start()
+    startingGameTimer.intervalFunc = main_window.warningTimer
+    startingGameTimer.timeoutFunc = main_window.warningTimer
+    main_window.warningTimer(startingGameTimer.duration)
+    startingGameTimer.start()
 
 def show_play_action_screen():
     global main_window
