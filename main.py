@@ -101,6 +101,7 @@ class TimerScreen(QMainWindow):
             self.ui.textEdit.setPlainText("WARNING!\n" + countdownTimer.toString(secondsLeft))
             if secondsLeft == 0:
                 show_play_action_screen()
+                self.close()
         else:
             self.ui.textEdit.setPlainText(countdownTimer.toString(secondsLeft))
 
