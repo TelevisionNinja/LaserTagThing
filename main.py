@@ -14,7 +14,12 @@ from countdownTimer import countdownTimer
 main_window = None
 #database = database()
 #database.open()
-startingGameTimer = countdownTimer(None, lambda * args: None)
+
+class PlayerInfo:
+    def __init__(self, name, id):
+        self.name = name
+        self.id = id
+        self.score = 0
 
 class SplashWindow(QWidget):
     closed = pyqtSignal()
@@ -44,8 +49,7 @@ class SplashWindow(QWidget):
 
         self.setLayout(self.layout)
         self.show()
-
-        # setting timer
+        
         QTimer.singleShot(3000, self.close_and_show_entry_screen)
     
     def close_and_show_entry_screen(self):
@@ -60,50 +64,100 @@ class PlayerEntryWindow(QMainWindow):
         QMainWindow.__init__(self)
 
     def setupUIEvents(self):
-        self.ui.startGame.clicked.connect(show_timer_screen)
+        self.ui.startGame.clicked.connect(self.start_play_action)
+        self.ui.textEdit.setText("60")
 
     def closeEvent(self, event):
-        # close here instead of after splash
-        # sys.exit()
-        event.accept()
+        if main_window == self:
+            sys.exit()
+        else:
+            event.accept()
     
     def keyPressEvent(self, e) -> None:
         if e.key() == Qt.Key_F5:
-            show_timer_screen()
+            self.start_play_action()
+    
+    def get_list_players(self, idx):
+        players = []
+        for i in range(20):
+            name = getattr(self.ui, f"player{i}FirstName_{idx}").toPlainText()
+            id = getattr(self.ui, f"player{i}LastName_{idx}").toPlainText()
+
+            if name.strip() == "" or id.strip() == "":
+                continue
+
+            player_info = PlayerInfo(name, id)
+            players.append(player_info)
+        
+        return players
+
+    def start_play_action(self):
+        red_team_players = self.get_list_players(1)
+        blue_team_players = self.get_list_players(2)
+
+        timer_input_text = self.ui.textEdit.toPlainText()
+        
+        if timer_input_text.isnumeric():
+            timer_duration = int(timer_input_text)
+        else:
+            # todo: should have some kind of popup if this isn't valid
+            timer_duration = 60
+
+        show_play_action_screen(timer_duration, red_team_players, blue_team_players)
 
 class PlayActionScreen(QMainWindow):
-    def __init__(self):
+    def __init__(self, timer_duration, red_team_players, blue_team_players):
         QMainWindow.__init__(self)
+        self.startingGameTimer = countdownTimer(None, lambda * args: None)
+        self.timer_duration = timer_duration
+        self.red_team_players = red_team_players
+        self.blue_team_players = blue_team_players
         
     def setupUIEvents(self):
-       pass
+        self.ui.team1.setRowCount(0)
+        self.ui.team2.setRowCount(0)
+
+        for player_info in self.red_team_players:
+            self.addRow(self.ui.team1, player_info.name, player_info.score)
+
+        for player_info in self.blue_team_players:
+            self.addRow(self.ui.team2, player_info.name, player_info.score)
+        
+        self.startingGameTimer.duration = self.timer_duration
+        self.startingGameTimer.reset()
+
+        self.startingGameTimer.intervalFunc = self.updateTimer
+        self.startingGameTimer.timeoutFunc = self.updateTimer
+        self.updateTimer(self.startingGameTimer.duration)
+
+        self.startingGameTimer.start()
+
+    def addRow(self, table_widget, player_name, player_score):
+        numRows = table_widget.rowCount()
+        table_widget.insertRow(numRows)
+        
+        table_widget.setItem(numRows, 0, QTableWidgetItem(player_name))
+        table_widget.setItem(numRows, 1, QTableWidgetItem(str(player_score)))
 
     def closeEvent(self, event):
-        # close here instead of after splash
-        sys.exit()
-        event.accept()
-
-class TimerScreen(QMainWindow):
-    def __init__(self):
-        QMainWindow.__init__(self)
-        
-        
-    def setupUIEvents(self):
-        self.ui.pushButton.clicked.connect(show_player_entry_screen)
-
-    def closeEvent(self, event):
-        # close here instead of after splash
-        # sys.exit()
-        event.accept()
-
-    def warningTimer(self, secondsLeft):
-        if(secondsLeft <= 10):
-            self.ui.textEdit.setPlainText("WARNING!\n" + countdownTimer.toString(secondsLeft))
-            if secondsLeft == 0:
-                show_play_action_screen()
-                self.close()
+        if main_window == self:
+            sys.exit()
         else:
-            self.ui.textEdit.setPlainText(countdownTimer.toString(secondsLeft))
+            event.accept()
+
+    def updateTimer(self, secondsLeft):
+        timer_text = f"Time Remaining: {countdownTimer.toString(secondsLeft)}"
+        timer_text_color = "black"
+
+        if secondsLeft <= 10:
+            timer_text_color = "red"
+        
+        self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: {timer_text_color};}}")
+        self.ui.timeRemaining.setPlainText(timer_text)
+        
+        if secondsLeft == 0:
+            show_player_entry_screen()
+            self.close()
 
 def show_player_entry_screen():
     global main_window
@@ -112,35 +166,14 @@ def show_player_entry_screen():
     main_window.ui.setupUi(main_window)
     main_window.setupUIEvents()
     main_window.show()
-    startingGameTimer.reset()
     
     return main_window
 
-def show_timer_screen():
-    global main_window
-
-    try:
-        startingGameTimer.duration = int (main_window.ui.textEdit.toPlainText())
-        startingGameTimer.reset()
-    except:
-        pass
-
-    main_window = TimerScreen()
-    main_window.ui = TimerWindow()
-    main_window.ui.setupUi(main_window)
-    main_window.setupUIEvents()
-    main_window.show()
-
-    startingGameTimer.intervalFunc = main_window.warningTimer
-    startingGameTimer.timeoutFunc = main_window.warningTimer
-    main_window.warningTimer(startingGameTimer.duration)
-    startingGameTimer.start()
-
-def show_play_action_screen():
+def show_play_action_screen(timer_duration, red_team_players, blue_team_players):
     global main_window
 
     # we're replacing the window, so it's fine if it gets gc'd
-    main_window = PlayActionScreen()
+    main_window = PlayActionScreen(timer_duration, red_team_players, blue_team_players)
     main_window.ui = Ui_PlayActionWindow()
     main_window.ui.setupUi(main_window)
     main_window.setupUIEvents()
