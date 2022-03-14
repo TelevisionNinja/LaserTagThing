@@ -4,6 +4,7 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 from playerEntryScreen import Ui_MainWindow
 from playActionScreen import Ui_PlayActionWindow
+from timerScreen import Ui_MainWindow as TimerWindow
 from database.database import database
 from countdownTimer import countdownTimer
 
@@ -58,14 +59,7 @@ class PlayerEntryWindow(QMainWindow):
         QMainWindow.__init__(self)
 
     def setupUIEvents(self):
-        self.ui.startGame.clicked.connect(self.startGameEvent)
-
-    def startGameEvent(self):
-        main_window = show_play_action_screen()
-       # timer = countdownTimer(5, main_window.warningTimer, main_window.warningTimer)
-       # timer.start()
-        timer.intervalFunc = main_window.warningTimer
-        timer.timeoutFunc = main_window.warningTimer
+        self.ui.startGame.clicked.connect(show_timer_screen)
 
     def closeEvent(self, event):
         # close here instead of after splash
@@ -88,14 +82,27 @@ class PlayActionScreen(QMainWindow):
         sys.exit()
         event.accept()
 
-    def warningTimer(self, secondsLeft10):
-        #self.textEdit.setPlainText("Hello")
-        if(secondsLeft10 <= 10):
-            self.ui.textEdit.setPlainText("WARNING!\n" + countdownTimer.toString(secondsLeft10))
+class TimerScreen(QMainWindow):
+    def __init__(self):
+        QMainWindow.__init__(self)
+        
+        
+    def setupUIEvents(self):
+        self.ui.pushButton.clicked.connect(show_player_entry_screen)
+
+    def closeEvent(self, event):
+        # close here instead of after splash
+        # sys.exit()
+        event.accept()
+
+    def warningTimer(self, secondsLeft):
+        if(secondsLeft <= 10):
+            self.ui.textEdit.setPlainText("WARNING!\n" + countdownTimer.toString(secondsLeft))
+            if secondsLeft == 0:
+                show_play_action_screen()
         else:
-            self.ui.textEdit.setPlainText(countdownTimer.toString(secondsLeft10))
-            
-    
+            self.ui.textEdit.setPlainText(countdownTimer.toString(secondsLeft))
+
 def show_player_entry_screen():
     global main_window
     main_window = PlayerEntryWindow()
@@ -103,21 +110,39 @@ def show_player_entry_screen():
     main_window.ui.setupUi(main_window)
     main_window.setupUIEvents()
     main_window.show()
+    timer.reset()
     
     return main_window
 
+def show_timer_screen():
+    global main_window
+
+    try:
+        timer.duration = int (main_window.ui.textEdit.toPlainText())
+        timer.reset()
+    except:
+        pass
+
+    main_window = TimerScreen()
+    main_window.ui = TimerWindow()
+    main_window.ui.setupUi(main_window)
+    main_window.setupUIEvents()
+    main_window.show()
+
+    timer.intervalFunc = main_window.warningTimer
+    timer.timeoutFunc = main_window.warningTimer
+    main_window.warningTimer(timer.duration)
+    timer.start()
+
 def show_play_action_screen():
     global main_window
-    timer.duration = int (main_window.ui.textEdit.toPlainText())
-    timer.reset()
+
     # we're replacing the window, so it's fine if it gets gc'd
     main_window = PlayActionScreen()
-    #timer = countdownTimer(5, main_window.__warningTimer, main_window.__warningTimer)
     main_window.ui = Ui_PlayActionWindow()
     main_window.ui.setupUi(main_window)
     main_window.setupUIEvents()
     main_window.show()
-    timer.start()
     
     return main_window
 
