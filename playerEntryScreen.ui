@@ -32,6 +32,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player1FirstName">
      <property name="geometry">
@@ -41,6 +44,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player2FirstName">
@@ -52,6 +58,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player3FirstName">
      <property name="geometry">
@@ -61,6 +70,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player6FirstName">
@@ -72,6 +84,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player5FirstName">
      <property name="geometry">
@@ -81,6 +96,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player4FirstName">
@@ -92,6 +110,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player7FirstName">
      <property name="geometry">
@@ -101,6 +122,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player10FirstName">
@@ -112,6 +136,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player9FirstName">
      <property name="geometry">
@@ -121,6 +148,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player8FirstName">
@@ -132,6 +162,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player11FirstName">
      <property name="geometry">
@@ -141,6 +174,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player15FirstName">
@@ -152,6 +188,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player12FirstName">
      <property name="geometry">
@@ -161,6 +200,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player13FirstName">
@@ -172,6 +214,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player14FirstName">
      <property name="geometry">
@@ -181,6 +226,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player18FirstName">
@@ -192,6 +240,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player17FirstName">
      <property name="geometry">
@@ -201,6 +252,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player16FirstName">
@@ -212,6 +266,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player19FirstName">
      <property name="geometry">
@@ -221,6 +278,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player6LastName">
@@ -232,6 +292,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player9LastName">
      <property name="geometry">
@@ -241,6 +304,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player1LastName">
@@ -252,6 +318,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player12LastName">
      <property name="geometry">
@@ -261,6 +330,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player2LastName">
@@ -272,6 +344,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player4LastName">
      <property name="geometry">
@@ -281,6 +356,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player14LastName">
@@ -292,6 +370,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player18LastName">
      <property name="geometry">
@@ -301,6 +382,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player13LastName">
@@ -312,6 +396,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player0LastName">
      <property name="geometry">
@@ -321,6 +408,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player15LastName">
@@ -332,6 +422,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player5LastName">
      <property name="geometry">
@@ -341,6 +434,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player8LastName">
@@ -352,6 +448,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player11LastName">
      <property name="geometry">
@@ -361,6 +460,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player10LastName">
@@ -372,6 +474,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player17LastName">
      <property name="geometry">
@@ -381,6 +486,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player3LastName">
@@ -392,6 +500,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player19LastName">
      <property name="geometry">
@@ -401,6 +512,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player16LastName">
@@ -412,6 +526,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player7LastName">
      <property name="geometry">
@@ -421,6 +538,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="label">
@@ -692,6 +812,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
      <property name="plainText">
       <string>Red Team</string>
      </property>
@@ -700,7 +823,7 @@
    <widget class="QWidget" name="team2" native="true">
     <property name="geometry">
      <rect>
-      <x>330</x>
+      <x>320</x>
       <y>10</y>
       <width>291</width>
       <height>651</height>
@@ -715,6 +838,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player1FirstName_2">
      <property name="geometry">
@@ -724,6 +850,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player2FirstName_2">
@@ -735,6 +864,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player3FirstName_2">
      <property name="geometry">
@@ -744,6 +876,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player6FirstName_2">
@@ -755,6 +890,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player5FirstName_2">
      <property name="geometry">
@@ -764,6 +902,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player4FirstName_2">
@@ -775,6 +916,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player7FirstName_2">
      <property name="geometry">
@@ -784,6 +928,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player10FirstName_2">
@@ -795,6 +942,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player9FirstName_2">
      <property name="geometry">
@@ -804,6 +954,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player8FirstName_2">
@@ -815,6 +968,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player11FirstName_2">
      <property name="geometry">
@@ -824,6 +980,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player15FirstName_2">
@@ -835,6 +994,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player12FirstName_2">
      <property name="geometry">
@@ -844,6 +1006,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player13FirstName_2">
@@ -855,6 +1020,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player14FirstName_2">
      <property name="geometry">
@@ -864,6 +1032,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player18FirstName_2">
@@ -875,6 +1046,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player17FirstName_2">
      <property name="geometry">
@@ -884,6 +1058,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player16FirstName_2">
@@ -895,6 +1072,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player19FirstName_2">
      <property name="geometry">
@@ -904,6 +1084,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player6LastName_2">
@@ -915,6 +1098,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player9LastName_2">
      <property name="geometry">
@@ -924,6 +1110,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player1LastName_2">
@@ -935,6 +1124,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player12LastName_2">
      <property name="geometry">
@@ -944,6 +1136,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player2LastName_2">
@@ -955,6 +1150,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player4LastName_2">
      <property name="geometry">
@@ -964,6 +1162,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player14LastName_2">
@@ -975,6 +1176,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player18LastName_2">
      <property name="geometry">
@@ -984,6 +1188,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player13LastName_2">
@@ -995,6 +1202,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player0LastName_2">
      <property name="geometry">
@@ -1004,6 +1214,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player15LastName_2">
@@ -1015,6 +1228,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player5LastName_2">
      <property name="geometry">
@@ -1024,6 +1240,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player8LastName_2">
@@ -1035,6 +1254,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player11LastName_2">
      <property name="geometry">
@@ -1044,6 +1266,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player10LastName_2">
@@ -1055,6 +1280,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player17LastName_2">
      <property name="geometry">
@@ -1064,6 +1292,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player3LastName_2">
@@ -1075,6 +1306,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player19LastName_2">
      <property name="geometry">
@@ -1084,6 +1318,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QPlainTextEdit" name="player16LastName_2">
@@ -1095,6 +1332,9 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
     </widget>
     <widget class="QPlainTextEdit" name="player7LastName_2">
      <property name="geometry">
@@ -1104,6 +1344,9 @@
        <width>101</width>
        <height>31</height>
       </rect>
+     </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
      </property>
     </widget>
     <widget class="QLabel" name="label_19">
@@ -1375,9 +1618,818 @@
        <height>31</height>
       </rect>
      </property>
+     <property name="tabChangesFocus">
+      <bool>true</bool>
+     </property>
      <property name="plainText">
       <string>Green Team</string>
      </property>
+    </widget>
+    <widget class="QWidget" name="team1_2" native="true">
+     <property name="geometry">
+      <rect>
+       <x>-270</x>
+       <y>0</y>
+       <width>351</width>
+       <height>651</height>
+      </rect>
+     </property>
+     <widget class="QPlainTextEdit" name="player0FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>50</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player1FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>80</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player2FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>110</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player3FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>140</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player6FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>230</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player5FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>200</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player4FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>170</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player7FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>260</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player10FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>350</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player9FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>320</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player8FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>290</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player11FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>380</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player15FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>500</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player12FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>410</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player13FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>440</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player14FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>470</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player18FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>590</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player17FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>560</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player16FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>530</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player19FirstName_3">
+      <property name="geometry">
+       <rect>
+        <x>40</x>
+        <y>620</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player6LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>230</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player9LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>320</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player1LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>80</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player12LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>410</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player2LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>110</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player4LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>170</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player14LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>470</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player18LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>590</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player13LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>440</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player0LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>50</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player15LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>500</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player5LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>200</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player8LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>290</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player11LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>380</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player10LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>350</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player17LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>560</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player3LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>140</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player19LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>620</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player16LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>530</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="player7LastName_3">
+      <property name="geometry">
+       <rect>
+        <x>150</x>
+        <y>260</y>
+        <width>101</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_41">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>2</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_42">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>260</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>7</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_43">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>3</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_44">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>4</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_45">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>230</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>6</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_46">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>200</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>5</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_47">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>80</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>1</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_48">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>320</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>9</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_49">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>380</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>11</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_50">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>410</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>12</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_51">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>290</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>8</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_52">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>470</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>14</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_53">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>350</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>10</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_54">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>440</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>13</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_55">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>530</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>16</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_56">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>590</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>18</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_57">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>620</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>19</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_58">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>500</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>15</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_59">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>560</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>17</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_60">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>31</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>0</string>
+      </property>
+     </widget>
+     <widget class="QPlainTextEdit" name="teamName_3">
+      <property name="geometry">
+       <rect>
+        <x>90</x>
+        <y>10</y>
+        <width>104</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="tabChangesFocus">
+       <bool>true</bool>
+      </property>
+      <property name="plainText">
+       <string>Red Team</string>
+      </property>
+     </widget>
     </widget>
    </widget>
    <widget class="QPushButton" name="startGame">
