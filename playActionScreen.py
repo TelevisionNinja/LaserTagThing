@@ -1,6 +1,5 @@
 # Form implementation generated from reading ui file 'playActionScreen.ui'
 #
-        main
 # Created by: PyQt5 UI code generator 5.15.6
 #
 # WARNING: Any manual changes made to this file will be lost when pyuic6 is
@@ -16,7 +15,6 @@ class Ui_PlayActionWindow(object):
         PlayActionWindow.resize(1004, 541)
         self.centralwidget = QtWidgets.QWidget(PlayActionWindow)
         self.centralwidget.setObjectName("centralwidget")
-        main
         self.currentAction = QtWidgets.QListWidget(self.centralwidget)
         self.currentAction.setGeometry(QtCore.QRect(90, 230, 801, 231))
         self.currentAction.setObjectName("currentAction")

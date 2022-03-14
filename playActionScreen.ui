@@ -14,7 +14,6 @@
    <string>Play Action Window</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-        main
    <widget class="QListWidget" name="currentAction">
     <property name="geometry">
      <rect>
