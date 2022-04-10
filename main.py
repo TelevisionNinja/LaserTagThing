@@ -17,8 +17,8 @@ SOCKET_PORT = 7501
 # pyqt/python is stupid and will immediately gc all windows
 # so hold a reference to all windows so it knows not to destroy them
 main_window = None
-#database = database()
-#database.open()
+database = database()
+database.open()
 
 class PlayerInfo:
     def __init__(self, name, id):
@@ -64,12 +64,43 @@ class SplashWindow(QWidget):
         self.closed.emit()
         event.accept()
 
+class FocusEventHandler(QObject):
+    def __init__(self, window):
+        self.window = window
+        QObject.__init__(self)
+
+    def eventFilter(self, widget: 'QObject', event: 'QEvent') -> bool:
+        if event.type() == QEvent.FocusOut:
+            self.window.unfocused(widget)
+        return super().eventFilter(widget, event)
+
 class PlayerEntryWindow(QMainWindow):
     def __init__(self):
         QMainWindow.__init__(self)
 
+    def unfocused(self, widget:QPlainTextEdit):
+        try:
+            if "LastName" in widget.objectName():
+                name = database.fetch(int(widget.toPlainText()))
+                firstNameWidgetName = widget.objectName().replace("LastName", "FirstName")
+                firstNameWidget = getattr(self.ui, firstNameWidgetName)
+                if name != None:
+                    firstNameWidget.setPlainText(name[0])
+                else:
+                    newName = firstNameWidget.toPlainText()
+                    database.upsert(int(widget.toPlainText()), newName, "", "")
+
+        except: pass
+
     def setupUIEvents(self):
         self.ui.startGame.clicked.connect(self.start_countdown_timer)
+        self.filter = FocusEventHandler(self)
+        for j in range(1,3):
+            for i in range(20):
+                name:QPlainTextEdit = getattr(self.ui, f"player{i}FirstName_{j}")
+                id:QPlainTextEdit = getattr(self.ui, f"player{i}LastName_{j}")
+                name.installEventFilter(self.filter)
+                id.installEventFilter(self.filter)
 
     def closeEvent(self, event):
         if main_window == self:
@@ -224,6 +255,10 @@ class PlayActionScreen(QMainWindow):
         if secondsLeft == 0:
             show_player_entry_screen()
             self.close()
+
+#database autofill
+player1 = database.fetch(1)
+print(player1)
 
 def show_player_entry_screen():
     global main_window
