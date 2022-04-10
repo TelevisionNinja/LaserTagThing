@@ -22,7 +22,7 @@ def parseData(raw_data):
 
 # example callback function
 def callback(shooter_id, target_id):
-    print(str(shooter_id) + ' shot ' + str(target_id))
+    print(str(shooter_id) + " shot " + str(target_id))
 
 
 # listen to hits

@@ -1,4 +1,5 @@
 import sys
+import itertools
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
@@ -7,7 +8,11 @@ from playActionScreen import Ui_PlayActionWindow
 from timerScreen import Ui_MainWindow as TimerWindow
 from database.database import database
 from countdownTimer import countdownTimer
+from udpClient import UdpClient
+from udpClient import UdpClientThread
 
+SOCKET_IP = "127.0.0.1"
+SOCKET_PORT = 7501
 
 # pyqt/python is stupid and will immediately gc all windows
 # so hold a reference to all windows so it knows not to destroy them
@@ -85,7 +90,7 @@ class PlayerEntryWindow(QMainWindow):
             if name.strip() == "" or id.strip() == "":
                 continue
 
-            player_info = PlayerInfo(name, id)
+            player_info = PlayerInfo(name, int(id))
             players.append(player_info)
         
         return players
@@ -108,7 +113,7 @@ class PlayerEntryWindow(QMainWindow):
 class TimerScreen(QMainWindow):
     def __init__(self, game_duration, red_team_players, blue_team_players):
         QMainWindow.__init__(self)
-        self.startingGameTimer = countdownTimer(30)
+        self.startingGameTimer = countdownTimer(3)
         self.game_duration = game_duration
         self.red_team_players = red_team_players
         self.blue_team_players = blue_team_players
@@ -149,28 +154,57 @@ class PlayActionScreen(QMainWindow):
         self.startingGameTimer = countdownTimer(timer_duration)
         self.red_team_players = red_team_players
         self.blue_team_players = blue_team_players
+        self.player_id_to_info = {}
+        self.player_id_to_row = {}
+        self.player_id_to_table_widget = {}
+        self.udpClient = UdpClient(SOCKET_IP, SOCKET_PORT)
+        self.udpClientThread = UdpClientThread(self.udpClient, self)
+        self.udpClientThread.start()
+        self.setupPlayerMap()
         
+    def udpCallback(self, text):
+        text_split = text.split(":")
+        shooter_id = int(text_split[0])
+        hit_id = int(text_split[1])
+
+        shooter_player_info = self.player_id_to_info[shooter_id]
+        shooter_player_info.score += 1
+
+    def setupPlayerMap(self):
+        all_players = self.red_team_players + self.blue_team_players
+        for player in all_players:
+            self.player_id_to_info[player.id] = player
+
     def setupUIEvents(self):
+        self.startingGameTimer.callback = self.updateTimer
+        self.startingGameTimer.start()
+
+        self.refreshTable()
+    
+    def refreshTable(self):
         self.ui.team1.setRowCount(0)
         self.ui.team2.setRowCount(0)
 
         for player_info in self.red_team_players:
-            self.addRow(self.ui.team1, player_info.name, player_info.score)
+            self.addRow(self.ui.team1, player_info.name, player_info.id, player_info.score)
 
         for player_info in self.blue_team_players:
-            self.addRow(self.ui.team2, player_info.name, player_info.score)
+            self.addRow(self.ui.team2, player_info.name, player_info.id, player_info.score)
 
-        self.startingGameTimer.callback = self.updateTimer
-        self.startingGameTimer.start()
-
-    def addRow(self, table_widget, player_name, player_score):
+    def addRow(self, table_widget, player_name, player_id, player_score):
         numRows = table_widget.rowCount()
         table_widget.insertRow(numRows)
         
         table_widget.setItem(numRows, 0, QTableWidgetItem(player_name))
         table_widget.setItem(numRows, 1, QTableWidgetItem(str(player_score)))
 
+        self.player_id_to_row[player_id] = numRows
+        self.player_id_to_table_widget[player_id] = table_widget
+
     def closeEvent(self, event):
+        self.udpClientThread.stopped = True
+        self.udpClient.s.close()
+
         if main_window == self:
             sys.exit()
         else:
@@ -185,6 +219,8 @@ class PlayActionScreen(QMainWindow):
         
         self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: {timer_text_color};}}")
         self.ui.timeRemaining.setPlainText(timer_text)
+
+        self.refreshTable()
         
         if secondsLeft == 0:
             show_player_entry_screen()
