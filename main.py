@@ -1,3 +1,4 @@
+from pickle import FALSE
 import sys
 import itertools
 from PyQt5.QtGui import *
@@ -150,6 +151,8 @@ class PlayActionScreen(QMainWindow):
     def __init__(self, timer_duration, red_team_players, blue_team_players):
         QMainWindow.__init__(self)
         self.startingGameTimer = countdownTimer(timer_duration)
+        self.flashHighScore = countdownTimer(timer_duration)
+        self.flash = True
         self.red_team_players = red_team_players
         self.blue_team_players = blue_team_players
         self.player_id_to_info = {}
@@ -211,19 +214,41 @@ class PlayActionScreen(QMainWindow):
     def updateTimer(self, secondsLeft):
         timer_text = f"Time Remaining: {countdownTimer.toString(secondsLeft)}"
         
-
         if secondsLeft <= 10:
             self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: red;}}")
             
         
        # self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: {timer_text_color};}}")
         self.ui.timeRemaining.setPlainText(timer_text)
-
         self.refreshTable()
         
         if secondsLeft == 0:
             show_player_entry_screen()
             self.close()
+        
+        self.high_score(34,22) #I'm not sure what to pass here as there is no High score, or any scores.
+
+    def high_score(self, red_team_high_score, blue_team_high_score):
+        read_team = f"High Score: {red_team_high_score}"
+        blue_team = f"High Score: {blue_team_high_score}"
+
+        if self.flash:
+            if red_team_high_score > blue_team_high_score:
+                self.ui.highScore1.setStyleSheet(f"QPlainTextEdit {{color: red;}}")
+            if red_team_high_score < blue_team_high_score:
+                self.ui.highScore2.setStyleSheet(f"QPlainTextEdit {{color: red;}}")
+            self.flash = False
+        else:
+            if red_team_high_score > blue_team_high_score:
+                self.ui.highScore1.setStyleSheet(f"QPlainTextEdit {{color: black;}}")
+            if red_team_high_score < blue_team_high_score:
+                self.ui.highScore2.setStyleSheet(f"QPlainTextEdit {{color: black;}}")
+            self.flash = True
+
+        self.ui.highScore1.setPlainText(read_team)
+        self.ui.highScore2.setPlainText(blue_team)
+        self.refreshTable()
+
 
 def show_player_entry_screen():
     global main_window
