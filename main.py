@@ -257,7 +257,14 @@ class PlayActionScreen(QMainWindow):
             show_player_entry_screen()
             self.close()
         
-        self.high_score(34,22) #I'm not sure what to pass here as there is no High score, or any scores.
+        redScore = 0
+        for player_info in self.red_team_players:
+            redScore += player_info.score
+
+        greenScore = 0
+        for player_info in self.blue_team_players:
+            greenScore += player_info.score
+        self.high_score(redScore, greenScore) #I'm not sure what to pass here as there is no High score, or any scores.
 
     def high_score(self, red_team_high_score, blue_team_high_score):
         read_team = f"High Score: {red_team_high_score}"
@@ -279,11 +286,6 @@ class PlayActionScreen(QMainWindow):
         self.ui.highScore1.setPlainText(read_team)
         self.ui.highScore2.setPlainText(blue_team)
         self.refreshTable()
-
-
-#database autofill
-player1 = database.fetch(1)
-print(player1)
 
 def show_player_entry_screen():
     global main_window
