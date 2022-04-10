@@ -105,7 +105,7 @@ class PlayerEntryWindow(QMainWindow):
             game_timer_duration = int(game_timer_input_text)
         else:
             # todo: should have some kind of popup if this isn't valid
-            game_timer_duration = 60
+            game_timer_duration = 60 * 6
 
         show_timer_screen(game_timer_duration, red_team_players, blue_team_players)
 
@@ -113,7 +113,7 @@ class PlayerEntryWindow(QMainWindow):
 class TimerScreen(QMainWindow):
     def __init__(self, game_duration, red_team_players, blue_team_players):
         QMainWindow.__init__(self)
-        self.startingGameTimer = countdownTimer(3)
+        self.startingGameTimer = countdownTimer(30)
         self.game_duration = game_duration
         self.red_team_players = red_team_players
         self.blue_team_players = blue_team_players
@@ -139,10 +139,8 @@ class TimerScreen(QMainWindow):
 
 
     def updateTimer(self, secondsLeft):
-        if secondsLeft > 10:
+        if secondsLeft > 0:
             self.ui.textEdit.setPlainText(f"Time Remaining: {countdownTimer.toString(secondsLeft)}")
-        elif secondsLeft > 0:
-            self.ui.textEdit.setPlainText(f"WARNING!\nTime Remaining: {countdownTimer.toString(secondsLeft)}")
         else:
             show_play_action_screen(self.game_duration, self.red_team_players, self.blue_team_players)
             self.close()
@@ -212,12 +210,13 @@ class PlayActionScreen(QMainWindow):
 
     def updateTimer(self, secondsLeft):
         timer_text = f"Time Remaining: {countdownTimer.toString(secondsLeft)}"
-        timer_text_color = "black"
+        
 
         if secondsLeft <= 10:
-            timer_text_color = "red"
+            self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: red;}}")
+            
         
-        self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: {timer_text_color};}}")
+       # self.ui.timeRemaining.setStyleSheet(f"QPlainTextEdit {{color: {timer_text_color};}}")
         self.ui.timeRemaining.setPlainText(timer_text)
 
         self.refreshTable()
