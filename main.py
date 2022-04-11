@@ -147,7 +147,7 @@ class PlayerEntryWindow(QMainWindow):
 class TimerScreen(QMainWindow):
     def __init__(self, game_duration, red_team_players, red_team_name, blue_team_players, blue_team_name):
         QMainWindow.__init__(self)
-        self.startingGameTimer = countdownTimer(1)
+        self.startingGameTimer = countdownTimer(30)
         self.game_duration = game_duration
         self.red_team_players = red_team_players
         self.blue_team_players = blue_team_players
