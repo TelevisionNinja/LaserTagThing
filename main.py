@@ -201,6 +201,8 @@ class PlayActionScreen(QMainWindow):
 
         shooter_player_info = self.player_id_to_info[shooter_id]
         shooter_player_info.score += 1
+        target_player_info = self.player_id_to_info[hit_id]
+        self.ui.currentAction.addItem(shooter_player_info.name + " shot " + target_player_info.name)
 
     def setupPlayerMap(self):
         all_players = self.red_team_players + self.blue_team_players
