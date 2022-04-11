@@ -2,4 +2,4 @@
 
 import subprocess
 subprocess.run(["pip", "install", "PyQt5"])
-subprocess.run(["pip", "install", "psycopg2"])
+subprocess.run(["pip", "install", "psycopg2-binary"])
