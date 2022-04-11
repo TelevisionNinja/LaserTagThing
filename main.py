@@ -267,8 +267,8 @@ class PlayActionScreen(QMainWindow):
         self.high_score(redScore, greenScore) #I'm not sure what to pass here as there is no High score, or any scores.
 
     def high_score(self, red_team_high_score, blue_team_high_score):
-        read_team = f"High Score: {red_team_high_score}"
-        blue_team = f"High Score: {blue_team_high_score}"
+        read_team = f"Red Team High Score: {red_team_high_score}"
+        blue_team = f"Blue Team High Score: {blue_team_high_score}"
 
         if self.flash:
             if red_team_high_score > blue_team_high_score:
@@ -277,9 +277,9 @@ class PlayActionScreen(QMainWindow):
                 self.ui.highScore2.setStyleSheet(f"QPlainTextEdit {{color: red;}}")
             self.flash = False
         else:
-            if red_team_high_score > blue_team_high_score:
+            if red_team_high_score >= blue_team_high_score:
                 self.ui.highScore1.setStyleSheet(f"QPlainTextEdit {{color: black;}}")
-            if red_team_high_score < blue_team_high_score:
+            if red_team_high_score <= blue_team_high_score:
                 self.ui.highScore2.setStyleSheet(f"QPlainTextEdit {{color: black;}}")
             self.flash = True
 
