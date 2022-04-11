@@ -7,23 +7,16 @@ import sys
 
 
 class countdownTimer:
-    def __init__(self, duration, timeoutFunc, intervalFunc = lambda *args: None):
+    def __init__(self, duration = 30, callback = lambda *args: None):
         """
-        duration: amount of seconds the timer will take to execute the "timeoutFunc" function
-        timeoutFunc: the function to be executed at the end of the timer duration. first parameter passed is the number of seconds left (0 seconds)
-        intervalFunc: the function to be executed during every second. first parameter passed is the number of seconds left (n seconds)
+        duration: amount of seconds the timer will last
+        callback: the function to be executed every second. first parameter passed is the number of seconds left (n seconds)
         """
 
         self.__timer = QTimer()
-
-        # default value of 30 seconds
-        if duration is None or duration == 0:
-            duration = 30
-
         self.duration = duration
         self.__remainingTime = self.duration
-        self.intervalFunc = intervalFunc
-        self.timeoutFunc = timeoutFunc
+        self.callback = callback
         self.__timer.timeout.connect(self.__timerInterval)
 
 
@@ -31,21 +24,25 @@ class countdownTimer:
         self.__remainingTime -= 1
 
         if self.__remainingTime == 0:
-            self.timeoutFunc(0)
+            self.callback(0)
             self.stop()
         else:
-            self.intervalFunc(self.__remainingTime)
+            self.callback(self.__remainingTime)
 
 
-    def start(self):
+    def start(self, executeNow = True):
         """
         starts the timer
 
         the timer will nto start if the time left is 0 seconds
         """
 
-        if self.__remainingTime != 0:
+        if self.__remainingTime > 0:
+            if executeNow:
+                self.callback(self.duration)
             self.__timer.start(1000)
+        elif self.duration <= 0:
+            self.callback(0)
 
 
     def stop(self):
@@ -91,10 +88,7 @@ def main():
             self.timerLabel.setAlignment(Qt.AlignmentFlag.AlignCenter)
             # self.timerLabel.setStyleSheet("font: 10pt Calibri")
 
-            self.timer = countdownTimer(5, self.updateGUI, self.updateGUI)
-            # self.timer = countdownTimer(5, self.updateGUI)
-
-            self.updateGUI(self.timer.duration)
+            self.timer = countdownTimer(5, self.updateGUI)
 
             # buttons
             self.startButton = QtWidgets.QPushButton(self)
@@ -130,9 +124,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
-    
-
-
-
-

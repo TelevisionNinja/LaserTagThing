@@ -1,4 +1,6 @@
 import socket
+import time
+import random
 
 #------------------------------------------
 # transmit if id player that was hit
